@@ -1,65 +1,84 @@
 * {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+   margin: 0;
+   font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: #5454c2;
+   background-color: #5454c2;
 }
 
 .calculator {
-    display: grid;
-    grid-template-areas:
-        "scr scr"
-        "del del"
-        "num ope";
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1.5fr 1fr 4fr;
-    width: 350px;
-    height: 400px;
-    gap: 2px;
-    background-color: white;
-    margin: 15px;
+   display: grid;
+   grid-template-areas:
+      "scr scr"
+      "del del"
+      "num ope";
+   grid-template-columns: 3fr 1fr;
+   grid-template-rows: 1.5fr 1fr 4fr;
+   width: 350px;
+   height: 400px;
+   gap: 2px;
+   background-color: white;
+   margin: 15px;
 }
 
 .screen-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-area: scr;
-    background-color: #151433;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr 1fr;
+   grid-area: scr;
+   background-color: #151433;
+}
+
+.screen-grid p {
+   margin: auto 15px auto 0;
+   text-align: right;
+}
+
+.screen-grid :first-child {
+   color: rgb(197, 197, 197);
+   font-size: 1.1em;
+}
+
+.screen-grid :last-child {
+   color: rgb(255, 255, 255);
+   font-size: 1.4em;
+}
+
+.screen-grid :last-child:empty::before {
+   content: attr(data-placeholder);
 }
 
 .delete-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-area: del;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-area: del;
 }
 
-.delete-grid :nth-child(2n+1) {
-    margin-right: 2px;
+.delete-grid :nth-child(2n + 1) {
+   margin-right: 2px;
 }
 
 .numbers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    grid-area: num;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 2px;
+   grid-area: num;
 }
 
 .operators-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2px;
-    grid-area: ope;
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 2px;
+   grid-area: ope;
 }
 
 button {
-    background-color: #d4d3f2;
-    border: none;
-    font-size: 1.2em;
+   background-color: #d4d3f2;
+   border: none;
+   font-size: 1.2em;
 }
 
 button:hover {
-    background-color: #dbdaf3;
+   background-color: #dbdaf3;
 }

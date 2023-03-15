@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+      <title>Calculatrice</title>
+   </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Calculatrice</title>
-</head>
-
-<body>
-    <div class="calculator">
-        <div class="screen-grid"></div>
-        <div class="delete-grid">
-            <button>AC</button>
-            <button>DEL</button>
-        </div>
-        <div class="numbers-grid">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>.</button>
-            <button>0</button>
-            <button>=</button>
-        </div>
-        <div class="operators-grid">
-            <button>÷</button>
-            <button>×</button>
-            <button>−</button>
-            <button>+</button>
-        </div>
-    </div>
-</body>
+   <body>
+      <div class="calculator">
+         <div class="screen-grid">
+            <p data-altDisplay></p>
+            <p data-mainDisplay data-placeholder="0"></p>
+         </div>
+         <div class="delete-grid">
+            <button data-clear>AC</button>
+            <button data-delete>DEL</button>
+         </div>
+         <div class="numbers-grid">
+            <button data-numbers>1</button>
+            <button data-numbers>2</button>
+            <button data-numbers>3</button>
+            <button data-numbers>4</button>
+            <button data-numbers>5</button>
+            <button data-numbers>6</button>
+            <button data-numbers>7</button>
+            <button data-numbers>8</button>
+            <button data-numbers>9</button>
+            <button data-numbers>.</button>
+            <button data-numbers>0</button>
+            <button data-equals>=</button>
+         </div>
+         <div class="operators-grid">
+            <button data-operators>÷</button>
+            <button data-operators>×</button>
+            <button data-operators>−</button>
+            <button data-operators>+</button>
+         </div>
+      </div>
+   </body>
 </html>
 
-<script>
-
-for (let el of document.querySelectorAll(".numbers-grid button")) { 
-    el.addEventListener("click", (event) => {
-        console.log(event.target.textContent);
-        //test
-    })
-}
-</script>
+<script src="script.js"></script> 
