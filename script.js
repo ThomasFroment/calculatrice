@@ -44,15 +44,27 @@ function calculate() {
          result = prevFloat + currFloat;
          break;
    }
+   var str = result.toString();
 
-   return result.toString();
+   if (str.length > 16) {
+      str = result.toExponential();
+   }
+
+   return str;
 }
 
 function appendDigit(digit) {
    if (digit === "." && currNumber.includes(".")) {
       return;
    }
-   if (digit === "0" && currNumber === "0") {
+   if (currNumber === "0") {
+      if (digit === "0") {
+         return;
+      }
+      currNumber = digit;
+      return;
+   }
+   if (currNumber.length >= 16) {
       return;
    }
    currNumber += digit;
@@ -60,7 +72,7 @@ function appendDigit(digit) {
 }
 
 function selectOperator(symbol) {
-   if (currNumber === "" || prevNumber === "") {
+   if (currNumber === "" || prevNumber === "" || currOperator === "") {
       if (prevNumber === "") {
          prevNumber = currNumber || "0";
       }
