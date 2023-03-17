@@ -1,8 +1,12 @@
+import { Decimal } from "./modules/decimal.mjs";
+Decimal.set({
+   toExpPos: 14,
+});
+
 var currNumber = "";
 var prevNumber = "";
 
 var currOperator = "";
-var chainOperation = false;
 
 const INPUT = document.querySelector("[data-input]");
 const OUTPUT = document.querySelector("[data-output]");
@@ -24,33 +28,24 @@ function reset(err) {
 function calculate() {
    var result;
 
-   const currFloat = parseFloat(currNumber);
-   const prevFloat = parseFloat(prevNumber);
+   const currFloat = new Decimal(currNumber);
+   const prevFloat = new Decimal(prevNumber);
 
    switch (currOperator) {
       case "÷":
-         if (currFloat === 0) {
-            return NaN;
-         }
-         result = prevFloat / currFloat;
+         result = prevFloat.dividedBy(currFloat);
          break;
       case "×":
-         result = prevFloat * currFloat;
+         result = prevFloat.times(currFloat);
          break;
       case "−":
-         result = prevFloat - currFloat;
+         result = prevFloat.minus(currFloat);
          break;
       case "+":
-         result = prevFloat + currFloat;
+         result = prevFloat.plus(currFloat);
          break;
    }
-   var str = result.toString();
-
-   if (str.length > 16) {
-      str = result.toExponential();
-   }
-
-   return str;
+   return result.toString();
 }
 
 function appendDigit(digit) {
