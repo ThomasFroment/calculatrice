@@ -33,6 +33,9 @@ function calculate() {
 
    switch (currOperator) {
       case "÷":
+         if (currFloat.equals(0)) {
+            return NaN;
+         }
          result = prevFloat.dividedBy(currFloat);
          break;
       case "×":
@@ -49,8 +52,15 @@ function calculate() {
 }
 
 function appendDigit(digit) {
-   if (digit === "." && currNumber.includes(".")) {
-      return;
+   if (digit === ".") {
+      if (currNumber.includes(".")) {
+         return;
+      }
+      if (currNumber === "") {
+         currNumber = "0.";
+         INPUT.innerText = currNumber;
+         return;
+      }
    }
    if (currNumber === "0") {
       if (digit === "0") {
